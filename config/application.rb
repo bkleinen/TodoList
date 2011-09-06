@@ -46,3 +46,7 @@ module TodoList
     config.assets.version = '1.0'
   end
 end
+
+config.generators do |g|
+  g.test_framework :rspec, :fixture => false
+end
