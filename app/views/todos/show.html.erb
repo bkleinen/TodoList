@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @todo.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @todo.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @todo.status %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%= @todo.due %>
+</p>
+
+
+<%= link_to 'Edit', edit_todo_path(@todo) %> |
+<%= link_to 'Back', todos_path %>
