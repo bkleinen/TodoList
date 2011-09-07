@@ -5,7 +5,8 @@ describe "todos/show.html.erb" do
     @todo = assign(:todo, stub_model(Todo,
       :title => "Title",
       :description => "Description",
-      :status => false
+      :status => false,
+      :due => "2008-12-31"
     ))
   end
 
@@ -17,5 +18,6 @@ describe "todos/show.html.erb" do
     rendered.should match(/Description/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/false/)
+    rendered.should match(/2008-12-31/)
   end
 end
