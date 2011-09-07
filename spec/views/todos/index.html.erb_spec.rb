@@ -6,13 +6,13 @@ describe "todos/index.html.erb" do
       stub_model(Todo,
         :title => "Title",
         :description => "Description",
-        :status => false,
+        :status => true,
         :due => "2008-08-20"
       ),
       stub_model(Todo,
         :title => "Title",
         :description => "Description",
-        :status => false,
+        :status => true,
         :due => "2008-08-20"
       )
     ])

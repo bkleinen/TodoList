@@ -28,10 +28,11 @@ describe TodosController do
   end
 
   describe "GET index" do
-    it "assigns all todos as @todos" do
-      todo = Todo.create! valid_attributes
+    it "assigns all open todos as @todos" do
+      todo_open = Todo.create! valid_attributes
+      todo_closed = Todo.create! valid_attributes.merge(:status => true)
       get :index
-      assigns(:todos).should eq([todo])
+      assigns(:todos).should eq([todo_open])
     end
   end
 
