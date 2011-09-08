@@ -1,5 +1,12 @@
 TodoList::Application.routes.draw do
+  resources :user_sessions
+
+  resources :users
+
   resources :todos
+
+  get "login" => "user_sessions#new"
+  get "logout" => "user_sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
