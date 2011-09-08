@@ -1,4 +1,8 @@
 TodoList::Application.routes.draw do
+  resources :user_sessions
+
+  resources :users
+
   resources :todos
 
   # The priority is based upon order of creation:
