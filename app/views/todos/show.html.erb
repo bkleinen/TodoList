@@ -20,6 +20,17 @@
   <%= @todo.due %>
 </p>
 
+<p>
+  <b>Assignee:</b>
+  <% if @todo.user %>
+     <%= @todo.user%> is working on it! 
+  <% elsif current_user %>
+     <%=link_to "I'll fix it!", assign_path(@todo) %> 
+ <% else %>
+    <%=link_to "Login", login_path %> if you want to do this task!
+<% end %>
+ 
+</p>
 
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
 <%= link_to 'Back', todos_path %>
