@@ -12,7 +12,8 @@
 
 <p>
   <b>Status:</b>
-  <%= @todo.status %>
+  <%= @todo.status  %>
+  <%= link_to "Toggle status", toggle_status_path(:id => @todo.id) %>
 </p>
 
 <p>
@@ -24,7 +25,7 @@
   <b>Assignee:</b>
   <% if @todo.user %>
      <%= @todo.user.login%> is working on it! 
-  <% elsif current_user %>
+  <% elsif @current_user %>
      <%=link_to "I'll fix it!", assign_path(:id => @todo.id) %> 
  <% else %>
     <%=link_to "Login", login_path %> if you want to do this task!

@@ -14,7 +14,7 @@ class TodosController < ApplicationController
   # GET /todos/1.json
   def show
     @todo = Todo.find(params[:id])
-
+    @current_user = current_user
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @todo }
@@ -80,4 +80,47 @@ class TodosController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+  # GET /assign/
+  def assign
+    @todo = Todo.find(params[:id])
+    @todo.user = current_user if current_user
+    respond_to do |format|
+      if     @todo.save
+        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { redirect_to @todo, notice: 'Todo was not updated!' }
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+      end
+    end
+
+
+  end
+
+  # GET /toggle_status/
+  def toggle_status
+    @todo = Todo.find(params[:id])
+    if @todo.status
+      @todo.status = false
+    else
+      @todo.status = true
+    end
+
+      respond_to do |format|
+      if     @todo.save
+        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { redirect_to @todo, notice: 'Todo was not updated!' }
+        format.json { render json: @todo.errors, status: :unprocessable_entity }
+      end
+    end
+
+
+  end
+
 end
+
+

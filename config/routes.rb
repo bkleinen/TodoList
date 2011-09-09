@@ -8,6 +8,9 @@ TodoList::Application.routes.draw do
   get "login" => "user_sessions#new"
   get "logout" => "user_sessions#destroy"
 
+  match "todos/:id/assign" => "todos#assign", :as => :assign
+  match "todos/:id/toggle_status" => "todos#toggle_status", :as => :toggle_status
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

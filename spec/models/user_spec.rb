@@ -10,7 +10,7 @@ require 'spec_helper'
 
 describe User do
   it "has many todos" do
-    user = User.create! valid_attributes
+    user = User.create valid_attributes
     user.should respond_to(:todos)
   end
 end
