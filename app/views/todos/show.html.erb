@@ -23,9 +23,9 @@
 <p>
   <b>Assignee:</b>
   <% if @todo.user %>
-     <%= @todo.user%> is working on it! 
+     <%= @todo.user.login%> is working on it! 
   <% elsif current_user %>
-     <%=link_to "I'll fix it!", assign_path(@todo) %> 
+     <%=link_to "I'll fix it!", assign_path(:id => @todo.id) %> 
  <% else %>
     <%=link_to "Login", login_path %> if you want to do this task!
 <% end %>
